@@ -9,6 +9,10 @@ keyword = "防晒"
 fromIndex = input("输入开始页数：")
 toIndex = input("输入结束页数：")
 
+def cutStr(str):
+
+    return str
+
 def getData(fromIndex,toIndex):
     exits = os.path.exists('example.xls')
     workbook = Workbook()
