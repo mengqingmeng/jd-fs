@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 import json,logging,os
 from openpyxl import Workbook
 keyword = "防晒"
-
+import StringUtils
 
 fromIndex = input("输入开始页数：")
 toIndex = input("输入结束页数：")
@@ -40,6 +40,8 @@ def getData(fromIndex,toIndex):
                     name = product.find("div",class_="p-name").find('em').get_text()
                     if "【京东超市】" in name:
                         name = name.replace("【京东超市】"," ")
+
+                    name = StringUtils.dealProductName(name)
                     url = product.find("div",class_="p-name").find('a').get('href')
                     comments = product.find("div",class_="p-commit").find('a').get_text()
 
